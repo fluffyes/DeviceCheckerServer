@@ -59,6 +59,30 @@ post '/redeem' do
   json({ message: 'Congratulations!', redeemable: true })
 end
 
+post '/reset' do
+  begin
+    request_payload = JSON.parse request.body.read
+  rescue JSON::ParserError
+    return json({ message: 'please supply a valid token parameter' })
+  end
+
+  # request_payload['token'] is the 'token' parameter we sent in the iOS app
+  unless request_payload.key? 'token'
+    return json({ message: 'please supply a token', redeemable: false })
+  end
+
+  response = query_two_bits(request_payload['token'])
+
+  unless response.status == 200
+    return json({ message: 'Error communicating with Apple server' })
+  end
+
+   # reset the first bit to false
+  update_two_bits(request_payload['token'], false, false)
+
+  json({ message: 'First bit reseted to false, you can redeem reward now' })
+end
+
 def jwt_token
   private_key = ENV['DEVICE_CHECK_KEY_STRING']
   key_id = ENV['DEVICE_CHECK_KEY_ID']
