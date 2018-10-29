@@ -56,7 +56,7 @@ post '/redeem' do
   # update the first bit to true, and tell the iOS app user can redeem the free gift
   update_two_bits(request_payload['token'], true, false)
 
-  json({ message: 'Congratulations!', redeemable: true })
+  json({ message: 'Congratulations! You have redeemed the reward', redeemable: true })
 end
 
 post '/reset' do
