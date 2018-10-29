@@ -8,7 +8,7 @@ end
 require 'openssl'
 require 'http'
 require 'jwt'
-require 'SecureRandom'
+require 'securerandom'
 
 configure do
   # change to https://api.devicecheck.apple.com for production app, ie. App in App Store / Testflight
