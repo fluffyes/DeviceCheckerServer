@@ -57,7 +57,7 @@ post '/redeem' do
 end
 
 def jwt_token
-  private_key = File.read(ENV['DEVICE_CHECK_KEY_FILE'])
+  private_key = ENV['DEVICE_CHECK_KEY_STRING']
   key_id = ENV['DEVICE_CHECK_KEY_ID']
   team_id = ENV['DEVICE_CHECK_TEAM_ID']
 
