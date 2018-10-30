@@ -11,7 +11,7 @@ You will need an Apple Developer account before proceeding.
 1. Go to [https://developer.apple.com/account/ios/authkey/](https://developer.apple.com/account/ios/authkey/) and create a new key by clicking the '**+**' button.
 
 2. Give the key a name, check '**DeviceCheck**' in the Key Services, click '**Continue**', then download the key. Copy the **Key ID** shown on the download page as well.
-3. Create an app in Heroku panel, then go to **Settings** tab, and add **Config Vars** like this :
+3. Create an app in [Heroku](https://heroku.com) panel, then go to **Settings** tab, and add **Config Vars** like this :
 
 ![configVar](README_asset/configVar.png)
 
